@@ -7,16 +7,16 @@ console.log("args:", args);
 
 
 
-const sourceDir = args[0];
-const targetDir = args[1];
+const sourceDir = args[2];
+const targetDir = args[3];
 
 console.log("sourceDir:", sourceDir);
 console.log("targetDir:", targetDir);
 
 
-fs.readdir(sourceDir, (error, files) => {
+fs.readdirSync(sourceDir, (error, files) => {
   if (error) {
-    console.log("can not find directory");
+    console.error("can not find directory", error);
     process.exit(1);
   }
   const fileNames = files;
